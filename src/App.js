@@ -12,22 +12,22 @@ class App extends Component {
   };
 
   plusMinusHandler = (type) => {
-    let v;
+    let result;
 
     switch (type) {
       case 'plus':
-        v =
+        result =
           this.state.step + this.state.value >= this.state.max
             ? this.state.max
             : this.state.step + this.state.value;
-        this.setState({ value: v });
+        this.setState({ value: result });
         break;
       case 'minus':
-        v =
+        result =
           this.state.value - this.state.step <= this.state.min
             ? this.state.min
             : this.state.value - this.state.step;
-        this.setState({ value: v });
+        this.setState({ value: result });
         break;
     }
   };
