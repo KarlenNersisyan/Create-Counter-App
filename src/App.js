@@ -73,6 +73,17 @@ class App extends Component {
     }
   };
 
+  reset = () => {
+    this.setState(
+      {
+        value: 0,
+      },
+      () => {
+        localStorage.setItem('value', 0);
+      }
+    );
+  };
+
   render() {
     return (
       <div className="App">
@@ -98,6 +109,15 @@ class App extends Component {
             <label className="labelName">
               <b>Step:</b> <Input type="step" changed={this.inputHandler} />
             </label>
+          </div>
+          <div className="extra-item-reset">
+            <button
+              className="refresh"
+              onClick={this.reset}
+              disabled={this.state.value === 0}
+            >
+              <i className="fas fa-redo-alt"></i>
+            </button>
           </div>
         </div>
       </div>

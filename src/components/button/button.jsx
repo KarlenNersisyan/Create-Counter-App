@@ -9,7 +9,7 @@ class Button extends Component {
       ) : (
         <i className="far fa-minus-circle"></i>
       );
-    return <p className="borderName" onClick={() => this.props.clicked(this.props.type)}>{icon}</p>;
+    return <button className="borderName" onClick={() => this.props.clicked(this.props.type)}>{icon}</button>;
   }
 }
 
