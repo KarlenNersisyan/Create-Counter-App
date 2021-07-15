@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import Button from './components/button/button.jsx';
 import Input from './components/input/input.jsx';
-
+const data = localStorage.getItem('value');
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
-      step: 1,
-      min: 0,
-      max: 50,
+      value: localStorage.getItem('value') ? +localStorage.getItem('value') : 0,
+      step: localStorage.getItem('step') ? localStorage.getItem('step') : 1,
+      min: localStorage.getItem('min') ? localStorage.getItem('min') : 0,
+      max: localStorage.getItem('max') ? localStorage.getItem('max') : 50,
     };
   }
 
@@ -21,15 +21,17 @@ class App extends Component {
       case 'plus':
         result =
           this.state.step + this.state.value >= this.state.max
-            ? this.state.max
+            ? this.state.value
             : this.state.step + this.state.value;
+        localStorage.setItem('value', result);
         this.setState({ value: result });
         break;
       case 'minus':
         result =
           this.state.value - this.state.step <= this.state.min
-            ? this.state.min
+            ? this.state.value
             : this.state.value - this.state.step;
+        localStorage.setItem('value', result);
         this.setState({ value: result });
         break;
     }
@@ -38,12 +40,15 @@ class App extends Component {
   inputHandler = (elem, type) => {
     switch (type) {
       case 'step':
+        localStorage.setItem('step', +elem.target.value);
         this.setState({ step: +elem.target.value });
         break;
       case 'max':
+        localStorage.setItem('max', +elem.target.value);
         this.setState({ max: +elem.target.value });
         break;
       case 'min':
+        localStorage.setItem('min', +elem.target.value);
         this.setState({ min: +elem.target.value });
         break;
     }
