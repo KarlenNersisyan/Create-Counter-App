@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 import Button from './components/button/button.jsx';
 import Input from './components/input/input.jsx';
+
 const data = localStorage.getItem('value');
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: localStorage.getItem('value') ? +localStorage.getItem('value') : 0,
-      step: localStorage.getItem('step') ? localStorage.getItem('step') : 1,
-      min: localStorage.getItem('min') ? localStorage.getItem('min') : 0,
-      max: localStorage.getItem('max') ? localStorage.getItem('max') : 50,
+      value: localStorage.getItem('value')
+        ? Number(localStorage.getItem('value'))
+        : 0,
+      step: localStorage.getItem('step')
+        ? Number(localStorage.getItem('step'))
+        : 1,
+      min: localStorage.getItem('min')
+        ? Number(localStorage.getItem('min'))
+        : -20,
+      max: localStorage.getItem('max')
+        ? Number(localStorage.getItem('max'))
+        : 20,
     };
   }
 
@@ -20,19 +29,20 @@ class App extends Component {
     switch (type) {
       case 'plus':
         result =
-          this.state.step + this.state.value >= this.state.max
+          this.state.step + this.state.value > this.state.max
             ? this.state.value
             : this.state.step + this.state.value;
-        localStorage.setItem('value', result);
-        this.setState({ value: result });
+        localStorage.setItem('value', !isNaN(result) ? result : 0);
+        this.setState({ value: !isNaN(result) ? result : 0 });
         break;
+
       case 'minus':
         result =
-          this.state.value - this.state.step <= this.state.min
+          this.state.value - this.state.step < this.state.min
             ? this.state.value
             : this.state.value - this.state.step;
-        localStorage.setItem('value', result);
-        this.setState({ value: result });
+        localStorage.setItem('value', !isNaN(result) ? result : 0);
+        this.setState({ value: !isNaN(result) ? result : 0 });
         break;
     }
   };
@@ -40,16 +50,25 @@ class App extends Component {
   inputHandler = (elem, type) => {
     switch (type) {
       case 'step':
-        localStorage.setItem('step', +elem.target.value);
-        this.setState({ step: +elem.target.value });
+        localStorage.setItem(
+          'step',
+          !isNaN(elem.target.value) ? elem.target.value : 1
+        );
+        this.setState({ step: Number(elem.target.value) });
         break;
       case 'max':
-        localStorage.setItem('max', +elem.target.value);
-        this.setState({ max: +elem.target.value });
+        localStorage.setItem(
+          'max',
+          !isNaN(elem.target.value) ? elem.target.value : 20
+        );
+        this.setState({ max: Number(elem.target.value) });
         break;
       case 'min':
-        localStorage.setItem('min', +elem.target.value);
-        this.setState({ min: +elem.target.value });
+        localStorage.setItem(
+          'min',
+          !isNaN(elem.target.value) ? elem.target.value : -20
+        );
+        this.setState({ min: Number(elem.target.value) });
         break;
     }
   };
