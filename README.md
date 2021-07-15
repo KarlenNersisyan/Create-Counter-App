@@ -23,9 +23,7 @@ _Requirements_:
 
 - Read 6. [Handling Events](https://reactjs.org/docs/handling-events.html)
 
-## WebSite Link
 
-[Counter](https://karlennersisyan.github.io/Create-Counter-App/)
 ### Creator
 
 _Karlen Nersisyan_
