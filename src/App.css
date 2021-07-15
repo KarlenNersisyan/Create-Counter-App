@@ -1,20 +1,47 @@
 .App {
-  text-align: center;
-  width: 80%;
-  margin: auto;
-  height: 70vh;
-  border: 1px solid black;
-}
-
-.counter {
-  height: 30%;
-  border: 1px solid black;
   display: flex;
+  margin: 100px 0;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
 .extra {
-  width: 80%;
-  margin: auto;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-item {
+  text-align: center;
+}
+
+.general {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.extra-item-step {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.inputName:hover{
+ box-shadow: 0 0 50px rgb(255, 253, 253);
+}
+
+.counter {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.inputName{
+  border-radius: 50px;
+}
+
+.labelName{
+  cursor: pointer;
+}
+
+.labelName:hover b{
+  color:white;
 }

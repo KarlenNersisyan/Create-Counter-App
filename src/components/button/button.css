@@ -1,0 +1,26 @@
+.far {
+  font-size: 35px;
+  color:chocolate;
+}
+.borderName {
+  width: 150px;
+  cursor: pointer;
+  border-radius: 50% 0;
+  height: 150px;
+  background: aliceblue;
+  box-shadow: 1px 1px 5px black;
+  text-align: center;
+  line-height: 150px;
+}
+
+.numberName {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  font-size: 50px;
+}
+
+.numberName:hover{
+    color:white;
+}
