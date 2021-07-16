@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/button/button.jsx';
 import Input from './components/input/input.jsx';
 import { plusMinusHandler } from './components/helper/incrementAndDecrement';
+
 const data = localStorage.getItem('value');
 class App extends Component {
   constructor(props) {
