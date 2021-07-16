@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Button from './components/button/button.jsx';
 import Input from './components/input/input.jsx';
-
+import { plusMinusHandler } from './components/helper/incrementAndDecrement';
 const data = localStorage.getItem('value');
 class App extends Component {
   constructor(props) {
@@ -22,30 +22,6 @@ class App extends Component {
         : 20,
     };
   }
-
-  plusMinusHandler = (type) => {
-    let result;
-
-    switch (type) {
-      case 'plus':
-        result =
-          this.state.step + this.state.value > this.state.max
-            ? this.state.value
-            : this.state.step + this.state.value;
-        localStorage.setItem('value', !isNaN(result) ? result : 0);
-        this.setState({ value: !isNaN(result) ? result : 0 });
-        break;
-
-      case 'minus':
-        result =
-          this.state.value - this.state.step < this.state.min
-            ? this.state.value
-            : this.state.value - this.state.step;
-        localStorage.setItem('value', !isNaN(result) ? result : 0);
-        this.setState({ value: !isNaN(result) ? result : 0 });
-        break;
-    }
-  };
 
   inputHandler = (elem, type) => {
     switch (type) {
@@ -88,9 +64,19 @@ class App extends Component {
     return (
       <div className="App">
         <div className="counter">
-          <Button type="minus" clicked={this.plusMinusHandler} />
+          <Button
+            type="minus"
+            clicked={() => {
+              plusMinusHandler('minus', this);
+            }}
+          />
           <p className="numberName">{this.state.value}</p>
-          <Button type="plus" clicked={this.plusMinusHandler} />
+          <Button
+            type="plus"
+            clicked={() => {
+              plusMinusHandler('plus', this);
+            }}
+          />
         </div>
         <div className="extra">
           <div className="general">
