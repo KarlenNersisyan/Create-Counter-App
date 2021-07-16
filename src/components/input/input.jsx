@@ -5,6 +5,7 @@ class Input extends Component {
   render() {
     return (
       <input
+        type="Number"
         className="inputName"
         onChange={(e) => this.props.changed(e, this.props.type)}
       />
