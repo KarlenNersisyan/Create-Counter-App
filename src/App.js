@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Button from './components/Button/Button.jsx';
-import Input from './components/Input/Input.jsx';
+import Button from './components/Button/Button';
+import Input from './components/Input/Input';
 import { plusMinusHandler } from './helpers/incrementAndDecrement';
 
 const data = localStorage.getItem('value');
