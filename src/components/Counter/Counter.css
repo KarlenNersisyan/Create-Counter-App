@@ -1,9 +1,9 @@
-.App {
-  display: flex;
-  margin: 100px 0;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+.Counter-container {
+    display: flex;
+    margin: 100px 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 
 .extra {
   display: flex;
@@ -62,4 +62,3 @@
   box-shadow: 2px 2px 0 black;
   cursor: pointer;
 }
-
