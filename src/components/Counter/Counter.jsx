@@ -24,28 +24,31 @@ class Counter extends Component {
     };
   }
 
-  inputHandler = (elem, type) => {
+  inputHandler = (event, type) => {
+    if (event.target.value === '') {
+      return;
+    }
     switch (type) {
       case 'step':
         localStorage.setItem(
           'step',
-          !isNaN(elem.target.value) ? elem.target.value : 1
+          !isNaN(event.target.value) ? event.target.value : 1
         );
-        this.setState({ step: Number(elem.target.value) });
+        this.setState({ step: Number(event.target.value) });
         break;
       case 'max':
         localStorage.setItem(
           'max',
-          !isNaN(elem.target.value) ? elem.target.value : 20
+          !isNaN(event.target.value) ? event.target.value : 20
         );
-        this.setState({ max: Number(elem.target.value) });
+        this.setState({ max: Number(event.target.value) });
         break;
       case 'min':
         localStorage.setItem(
           'min',
-          !isNaN(elem.target.value) ? elem.target.value : -20
+          !isNaN(event.target.value) ? event.target.value : -20
         );
-        this.setState({ min: Number(elem.target.value) });
+        this.setState({ min: Number(event.target.value) });
         break;
     }
   };
