@@ -22,13 +22,13 @@
 .extra-item-step {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  margin: 29px 0;
 }
 
 .extra-item-reset {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  margin: 29px 0;
 }
 
 .inputName:hover {
